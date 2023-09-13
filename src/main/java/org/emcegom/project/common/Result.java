@@ -1,11 +1,15 @@
 package org.emcegom.project.common;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Result<T> {
 
     private Integer code;
@@ -13,9 +17,7 @@ public class Result<T> {
     private T data;
     private Map<String, String> map = new HashMap();
 
-    //这里提供了几个静态方法来返回一个Result对象
-    //之前是直接用构造器的set方法也可以实现同样的功能
-    //不过此种方式的复用性更高
+
     public static <T> Result<T> success(T obj) {
         Result<T> r = new Result<>();
         r.setCode(1);
