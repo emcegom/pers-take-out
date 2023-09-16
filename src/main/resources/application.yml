@@ -28,3 +28,7 @@ mybatis-plus:
     db-config:
       id-type: ASSIGN_ID
 
+common:
+  base:
+    path: "E:\\Codes\\projects\\pers-take-out\\files"
+
