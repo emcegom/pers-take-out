@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -60,8 +61,8 @@ public class UserController {
             if (user == null) {
                 user = new User();
                 user.setPhone(phone);
-                userService.save(user);
                 user.setName("用户" + codeInSession);
+                userService.save(user);
             }
             //存个session，表示登录状态
             session.setAttribute("user",user.getId());
@@ -69,6 +70,12 @@ public class UserController {
             return Result.success(user);
         }
         return Result.error("登录失败");
+    }
+
+    @PostMapping("/loginout")
+    public Result<String> logout(HttpServletRequest request) {
+        request.getSession().removeAttribute("user");
+        return Result.success("退出成功");
     }
 
 
