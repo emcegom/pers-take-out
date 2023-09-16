@@ -30,5 +30,5 @@ mybatis-plus:
 
 common:
   base:
-    path: "E:\\Codes\\projects\\pers-take-out\\files"
+    path: "E:\\Codes\\projects\\pers-take-out\\files\\"
 
